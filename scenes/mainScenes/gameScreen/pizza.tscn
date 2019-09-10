@@ -1,0 +1,89 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://scenes/mainScenes/gameScreen/Mob.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/gameScreen/leftPizzaArm.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/gameScreen/leftPizzaLeg.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/gameScreen/Enemies/pizza.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/gameScreen/rightPizzaLeg.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/gameScreen/rightPizzaArm.png" type="Texture" id=6]
+[ext_resource path="res://scenes/mainScenes/gameScreen/atackPizza.tres" type="Animation" id=7]
+[ext_resource path="res://scenes/mainScenes/gameScreen/pizza.tres" type="Animation" id=8]
+[ext_resource path="res://assets/sounds/breaking.ogg" type="AudioStream" id=9]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+
+[node name="Mob" type="KinematicBody2D"]
+scale = Vector2( 0.0502731, 0.0502731 )
+collision_layer = 0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( -4.4152, 5.43546 )
+scale = Vector2( 1.79828, 4.89422 )
+
+[node name="leftArm" type="Sprite" parent="." groups=[
+"member",
+]]
+position = Vector2( -8.55536, 18.8925 )
+rotation = 0.0100968
+scale = Vector2( 0.0418298, 0.0471288 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="leftLeg" type="Sprite" parent="."]
+position = Vector2( 5.63477, 62.1632 )
+rotation = 1.90323e-07
+scale = Vector2( 0.0435053, 0.0628316 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="corpo" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( -0.607602, 3.70039 )
+scale = Vector2( 0.0546071, 0.0572125 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="rightLeg" type="Sprite" parent="corpo"]
+position = Vector2( 305.149, 1488.94 )
+rotation = -1.93754e-07
+scale = Vector2( 1.00282, 1.18309 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="rightArm" type="Sprite" parent="corpo" groups=[
+"member",
+]]
+position = Vector2( 651.096, 362.217 )
+rotation = 2.10626e-07
+scale = Vector2( 0.770992, 0.882598 )
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -1.72902, -9.33668 )
+rotation = 3.19077
+scale = Vector2( 5.18742, 6.57022 )
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/atack = ExtResource( 7 )
+anims/walk = ExtResource( 8 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -35.0
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

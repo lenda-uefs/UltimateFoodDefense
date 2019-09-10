@@ -1,0 +1,79 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://scenes/mainScenes/gameScreen/Mob.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/gameScreen/leftRefriArm.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/gameScreen/leftRefriLeg.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/gameScreen/Enemies/soda.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/gameScreen/rightRefriLeg.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/gameScreen/rightRefriArm.png" type="Texture" id=6]
+[ext_resource path="res://scenes/mainScenes/gameScreen/atackSoda.tres" type="Animation" id=7]
+[ext_resource path="res://scenes/mainScenes/gameScreen/soda.tres" type="Animation" id=8]
+[ext_resource path="res://assets/sounds/breaking.ogg" type="AudioStream" id=9]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 28.1157, 44.1254 )
+
+[node name="Mob" type="KinematicBody2D"]
+scale = Vector2( 0.047501, 0.047501 )
+collision_layer = 0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 2.7417, 0.524597 )
+scale = Vector2( 2.78585, 4.80838 )
+
+[node name="leftArm" type="Sprite" parent="."]
+position = Vector2( -21.3797, 12.828 )
+scale = Vector2( 0.0242142, 0.0372779 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="leftLeg" type="Sprite" parent="."]
+position = Vector2( 12.7791, 70.1201 )
+scale = Vector2( 0.0558197, 0.053837 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="corpo" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( -0.607602, 3.70039 )
+scale = Vector2( 0.0546071, 0.0572125 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="rightLeg" type="Sprite" parent="corpo"]
+position = Vector2( 0.00195313, 983.725 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="rightArm" type="Sprite" parent="corpo"]
+position = Vector2( 851.099, 405.483 )
+scale = Vector2( 0.643789, 0.716531 )
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/atack = ExtResource( 7 )
+anims/walk = ExtResource( 8 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -35.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 2.56188, 0.365982 )
+shape = SubResource( 1 )
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

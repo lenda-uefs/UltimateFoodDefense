@@ -1,0 +1,195 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://scenes/mainScenes/gameScreen/Mob.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/gameScreen/leftHamburguerArm.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/gameScreen/leftHamburguerLeg.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/gameScreen/Enemies/burguer.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/gameScreen/rightHamburguerArm.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/gameScreen/rightHamburguerLeg.png" type="Texture" id=6]
+[ext_resource path="res://scenes/mainScenes/gameScreen/hamburguer.tres" type="Animation" id=7]
+[ext_resource path="res://assets/sounds/breaking.ogg" type="AudioStream" id=8]
+
+[sub_resource type="Animation" id=1]
+length = 2.8
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("leftArm:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8, 1.2, 1.6, 1.7, 1.8, 1.9, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 32.423, 65.0276, 97.6378, 129.968, 97.4763, 64.9842, 32.4921, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("leftArm:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8, 1.2, 1.6, 1.7, 1.8, 1.9, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -62, 94 ), Vector2( -108, 147 ), Vector2( -158, 153.001 ), Vector2( -218.999, 101.001 ), Vector2( -244.999, -12.0001 ), Vector2( -215.249, 104.501 ), Vector2( -160.166, 157.001 ), Vector2( -109.083, 149.5 ), Vector2( -62, 94 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("leftLeg:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -38, 258 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("leftLeg:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("corpo/rightLeg:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 286.667, 906.667 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("corpo/rightLeg:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("corpo/rightArm:rotation_degrees")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8, 1.2, 1.6, 1.7, 1.8, 1.9, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 32.3099, 65.0297, 97.2668, 129.914, 97.4356, 64.9571, 32.4785, 0.0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("corpo/rightArm:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8, 1.2, 1.6, 1.7, 1.8, 1.9, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 740, 366.667 ), Vector2( 436.666, 479.995 ), Vector2( 123.337, 419.999 ), Vector2( -99.9946, 190.002 ), Vector2( -189.996, -123.327 ), Vector2( -90.829, 192.506 ), Vector2( 119.446, 407.228 ), Vector2( 433.056, 483.615 ), Vector2( 740, 366.667 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("AudioStreamPlayer:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.01, 2.17 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 234.836
+
+[node name="Mob" type="KinematicBody2D"]
+scale = Vector2( 0.00936485, 0.00936485 )
+collision_layer = 0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 11.0306, -17.9559 )
+scale = Vector2( 23.4424, 19.0956 )
+
+[node name="leftArm" type="Sprite" parent="." groups=[
+"member",
+]]
+position = Vector2( -62.2, 94.3667 )
+rotation = 0.00986204
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="leftLeg" type="Sprite" parent="."]
+position = Vector2( -36.3, 256.5 )
+rotation = -0.0155993
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="corpo" type="Sprite" parent="."]
+editor/display_folded = true
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="rightArm" type="Sprite" parent="corpo" groups=[
+"member",
+]]
+position = Vector2( 744.333, 362.445 )
+rotation = -0.0103721
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="rightLeg" type="Sprite" parent="corpo"]
+position = Vector2( 280.556, 905 )
+rotation = 0.015404
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/atack = SubResource( 1 )
+anims/walk = ExtResource( 7 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -35.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 5.56908, -5.5691 )
+shape = SubResource( 2 )
